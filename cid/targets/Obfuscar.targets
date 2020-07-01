@@ -1,0 +1,30 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup Condition="'$(ApplyObfuscation)' == 'true'">
+    <PackageReference Include="Obfuscar" Version="2.2.19">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>  
+
+  <PropertyGroup Condition="'$(ApplyObfuscation)' == 'true'"> 
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies> 
+  </PropertyGroup>
+
+  <Target Condition="$(Configuration)==Release AND '$(ApplyObfuscation)'=='true'" Name="Obfuscate" AfterTargets="Build" >
+    <PropertyGroup>
+      <ObfuscateDir>$(OutputPath)obfuscate\$(ProjectName)</ObfuscateDir>
+      <ObfuscatedFile>$(ObfuscateDir)\$(TargetFileName)</ObfuscatedFile>
+    </PropertyGroup>
+
+    <Exec WorkingDirectory="$(OutputPath)" Command="&quot;$(Obfuscar)&quot; -s $(ProjectDir)obfuscar.xml" ContinueOnError="false" />
+
+    <Message Text="Backing up $(TargetPath)" Importance="high" />
+    <Move SourceFiles="$(TargetPath)" DestinationFiles="$(TargetPath).bak" />
+
+    <Message Text="Copying $(ObfuscatedFile) to $(OutputPath)" Importance="high" />
+    <Copy SourceFiles="$(ObfuscatedFile)" DestinationFolder="$(OutputPath)" />
+
+    <Message Text="$(ProjectName) obfuscation complete." Importance="high" />
+  </Target>
+</Project>
