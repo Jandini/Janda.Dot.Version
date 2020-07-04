@@ -1,4 +1,4 @@
-### Janda.Dots.GitVersion
+### Janda.Dot.GitVersion
 
 | master | develop |
 |:------:|:-----------:|

@@ -1,2 +1,2 @@
 # Semicolon delimited solution names to be build
-DOT_BUILD_SOLUTIONS=Janda.Dots.GitVersion
+DOT_BUILD_SOLUTIONS=Janda.Dot.GitVersion

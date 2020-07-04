@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Janda.Dot.GitVersion</id>
+    <version>0.1.0</version>
+    <title></title>
+    <authors>Matt Janda</authors>
+    <owners>Matt Janda</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>GitVersion dot package</description>
+  </metadata>
+  <files>
+    <file src="content\empty.md" target="content\empty.md" />
+  </files>
+</package>
