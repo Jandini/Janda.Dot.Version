@@ -51,7 +51,7 @@ goto :eof
 
 call :nuspec_append_header
 call :nuspec_append_content build %~p0
-rem call :nuspec_append_content content %~p0
+call :nuspec_append_content content %~p0
 call :nuspec_append_footer
 echo The file %NUSPEC_FILE% created successfully.
 goto :eof
