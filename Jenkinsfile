@@ -51,21 +51,6 @@ node("matt10") {
             currentBuild.description = gitVersion.InformationalVersion
         }
 
-        stage('Restore') {
-            milestone()
-            dot('restore')
-        }
-
-        stage('Build') {
-            milestone()
-            dot('build')
-        }
-
-        stage('Test') {
-            milestone()
-            dot('test')
-        }
-
         stage('Pack') {
             milestone()
             dot('pack')
