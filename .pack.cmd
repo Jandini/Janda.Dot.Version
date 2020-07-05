@@ -71,9 +71,9 @@ echo     ^<owners^>%NUSPEC_PACKAGE_OWNERS%^</owners^>>> %NUSPEC_FILE%
 echo     ^<requireLicenseAcceptance^>false^</requireLicenseAcceptance^>>> %NUSPEC_FILE%
 echo     ^<description^>%NUSPEC_PACKAGE_DESCRIPTION%^</description^>>> %NUSPEC_FILE%
 echo     ^<developmentDependency^>true^</developmentDependency^>>> %NUSPEC_FILE%
-rem echo     ^<dependencies^>>> %NUSPEC_FILE%
-rem echo       ^<dependency id="GitVersionTask" version="5.3.3" /^>>> %NUSPEC_FILE%
-rem echo     ^</dependencies^>>> %NUSPEC_FILE%
+echo     ^<dependencies^>>> %NUSPEC_FILE%
+echo       ^<dependency id="GitVersionTask" version="5.3.3" /^>>> %NUSPEC_FILE%
+echo     ^</dependencies^>>> %NUSPEC_FILE%
 echo   ^</metadata^>>> %NUSPEC_FILE%
 echo   ^<files^>>> %NUSPEC_FILE%
 goto :eof
