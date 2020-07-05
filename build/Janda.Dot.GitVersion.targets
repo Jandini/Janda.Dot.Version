@@ -1,9 +1,10 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Target Name="DotGitVersionConfig" BeforeTargets="Restore;CollectPackageReferences" >
+    
     <ItemGroup>
       <GitVersionFiles Include="$(MSBuildThisFileDirectory)\GitVersion.yml"  />
     </ItemGroup>
-    <Copy SourceFiles="@(GitVersionFiles)" DestinationFolder="$(SolutionDir)..\" SkipUnchangedFiles="true" />
+    <Copy Condition= " !Exists('$(SolutionDir)..\GitVersion.yml') " SourceFiles="@(GitVersionFiles)" DestinationFolder="$(SolutionDir)..\" SkipUnchangedFiles="true" />
   </Target>
   <Target Name="DotGitVersionMessage" AfterTargets="Build" >
     <Message Text="Janda.Dot.GitVersion -> $(GitVersion_InformationalVersion)" Importance="High" />         
