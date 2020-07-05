@@ -1,5 +1,11 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">    
-  <Target Name="DotGitVersion" BeforeTargets="Build" >
-    <Message Text="Janda.Dot.GitVersion -> $(GitVersion_SemVer)" Importance="High" />
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="DotGitVersionConfig" BeforeTargets="Restore;CollectPackageReferences" >
+    <ItemGroup>
+      <GitVersionFiles Include="$(MSBuildThisFileDirectory)\GitVersion.yml"  />
+    </ItemGroup>
+    <Copy SourceFiles="@(GitVersionFiles)" DestinationFolder="$(SolutionDir)..\" SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="DotGitVersionMessage" AfterTargets="Build" >
+    <Message Text="Janda.Dot.GitVersion -> $(GitVersion_InformationalVersion)" Importance="High" />         
   </Target>
 </Project>
