@@ -1,5 +1,6 @@
 @echo off
-set DOT_GIT_VERSION=0.1.0
+call .version
+rem set DOT_GIT_VERSION=0.1.0
 set DOT_BASE_NAME=Janda.Dot.GitVersion
 
 
@@ -16,13 +17,16 @@ set NUSPEC_PACKAGE_TITLE=
 set NUSPEC_PACKAGE_OWNERS=Matt Janda
 
 
-
-echo Creating nuspec file...
 call :build_nuspec_file
-
 
 echo Packing %PACKAGE%...
 nuget pack .nuspec -OutputDirectory %OUTPUT_DIR% -NoDefaultExcludes -Version %DOT_GIT_VERSION% -Properties NoWarn=NU5105
+echo Adding %PACKAGE%...
+
+set NUGET_SOURCE=%USERPROFILE%\.nuget\local
+set PACKAGE_FOLDER="%NUGET_SOURCE%\%DOT_BASE_NAME%\%DOT_GIT_VERSION%"
+if exist %PACKAGE_FOLDER% call :remove_nuget_package
+nuget add bin\%PACKAGE% -source %USERPROFILE%\.nuget\local
 goto :eof
 
 
@@ -30,11 +34,24 @@ goto :eof
 
 
 
+:remove_nuget_package
+
+echo WARNING: Removing %PACKAGE_FOLDER%...
+rd /s /q %PACKAGE_FOLDER%
+
+set NUGET_SOURCE=%USERPROFILE%\.nuget\packages
+set PACKAGE_FOLDER="%NUGET_SOURCE%\%DOT_BASE_NAME%\%DOT_GIT_VERSION%"
+
+if exist %PACKAGE_FOLDER% echo WARNING: Removing %PACKAGE_FOLDER%...&rd /s /q %PACKAGE_FOLDER%
+
+goto :eof
+
 
 :build_nuspec_file
 
 call :nuspec_append_header
-call :nuspec_append_content content %~p0
+call :nuspec_append_content build %~p0
+rem call :nuspec_append_content content %~p0
 call :nuspec_append_footer
 echo The file %NUSPEC_FILE% created successfully.
 goto :eof
@@ -53,6 +70,10 @@ echo     ^<authors^>%NUSPEC_PACKAGE_AUTHORS%^</authors^>>> %NUSPEC_FILE%
 echo     ^<owners^>%NUSPEC_PACKAGE_OWNERS%^</owners^>>> %NUSPEC_FILE%
 echo     ^<requireLicenseAcceptance^>false^</requireLicenseAcceptance^>>> %NUSPEC_FILE%
 echo     ^<description^>%NUSPEC_PACKAGE_DESCRIPTION%^</description^>>> %NUSPEC_FILE%
+echo     ^<developmentDependency^>true^</developmentDependency^>>> %NUSPEC_FILE%
+echo     ^<dependencies^>>> %NUSPEC_FILE%
+echo       ^<dependency id="GitVersionTask" version="5.3.3" /^>>> %NUSPEC_FILE%
+echo     ^</dependencies^>>> %NUSPEC_FILE%
 echo   ^</metadata^>>> %NUSPEC_FILE%
 echo   ^<files^>>> %NUSPEC_FILE%
 goto :eof
