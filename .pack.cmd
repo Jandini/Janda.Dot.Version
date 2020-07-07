@@ -6,9 +6,6 @@ set DOT_BASE_NAME=Janda.Dot.GitVersion
 set PACKAGE=%DOT_BASE_NAME%.%DOT_GIT_VERSION%.nupkg
 if "%OUTPUT_DIR%" equ "" set OUTPUT_DIR=bin
 
-
-
-
 echo Packing %PACKAGE%...
 nuget pack .nuspec -OutputDirectory %OUTPUT_DIR% -NoDefaultExcludes -Properties "NoWarn=NU5105;Version=%DOT_GIT_VERSION%"
 echo Adding %PACKAGE%...
