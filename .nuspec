@@ -7,7 +7,7 @@
     <authors>Matt Janda</authors>
     <owners>Matt Janda</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>GitVersion dot package</description>
+    <description>GitVersionTask 5.3.3</description>
     <developmentDependency>true</developmentDependency>
     <dependencies>
       <dependency id="GitVersionTask" version="5.3.3" />
