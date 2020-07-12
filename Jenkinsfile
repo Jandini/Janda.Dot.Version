@@ -53,7 +53,7 @@ node("matt10") {
 
         stage('Pack') {
             milestone()
-            dot('pack')
+            dot('nuget --pack')
         }
                 
         stage('Cleanup') {
