@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](http://nas/matt/Janda.Dot.Version/compare/0.2.0...0.3.0) (2020-07-17)
+
+
+### Features
+
+* Add jenkins shared library ([d4d1359](http://nas/matt/Janda.Dot.Version/commit/d4d135927aa680860521a8ef96f2e80c914084b5))
+* Rename package ([9c52592](http://nas/matt/Janda.Dot.Version/commit/9c52592b37f3f9e7b20c71ddace9cf1074c5e83f))
 
 ## [0.2.0](http://nas/matt/Janda.Dot.Version/compare/0.1.0...0.2.0) (2020-07-07)
 
