@@ -7,6 +7,6 @@
   </Target>
 
   <Target Name="DotGitVersionMessage" BeforeTargets="Build" >
-    <Message Text="Janda.Dot.GitVersion -> $(GitVersion_InformationalVersion)" Importance="High" />         
+    <Message Text="Janda.Dot.GitVersion -> $(GitVersion_InformationalVersion)" />         
   </Target>
 </Project>
