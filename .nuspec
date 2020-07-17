@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>Janda.Dot.GitVersion</id>
+    <id>$Id$</id>
     <version>$Version$</version>
     <title></title>
     <authors>Matt Janda</authors>
     <owners>Matt Janda</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>GitVersion dot package</description>
+    <description>GitVersionTask 5.3.3</description>
     <developmentDependency>true</developmentDependency>
     <dependencies>
       <dependency id="GitVersionTask" version="5.3.3" />
