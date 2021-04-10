@@ -7,10 +7,10 @@
     <authors>Matt Janda</authors>
     <owners>Matt Janda</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>GitVersionTask 5.3.3</description>
+    <description>Provides GitVersion.MsBuild 5.6.8 with GitVersion.yml</description>
     <developmentDependency>true</developmentDependency>
     <dependencies>
-      <dependency id="GitVersionTask" version="5.3.3" />
+      <dependency id="GitVersion.MsBuild" version="5.6.8" />
     </dependencies>
   </metadata>
   <files>
