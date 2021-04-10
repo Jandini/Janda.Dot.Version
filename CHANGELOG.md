@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/Jandini/Janda.Dot.Version/compare/0.3.0...0.4.0) (2021-04-10)
+
+
+### Features
+
+* Add main branch support ([186dab0](https://github.com/Jandini/Janda.Dot.Version/commit/186dab049dba3cb89c867b72e0941c40b6b12238))
+* Replace gitversion task with gitversion msbuild 5.6.8 ([67915cc](https://github.com/Jandini/Janda.Dot.Version/commit/67915cc3ed6c5a028285e7e936a97e8e3e4d3faf))
+
 ## [0.3.0](http://nas/matt/Janda.Dot.Version/compare/0.2.0...0.3.0) (2020-07-17)
 
 
